@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>泡泡糖 · 一张图看懂</title>
+<style>
+:root {
+  --orange: #F08C38; --blue: #2E86C1; --green: #27AE60;
+  --purple: #8E44AD; --pink: #E74C3C; --bg: #FFFDF7;
+  --card: #FFFFFF; --text: #2C3E50; --light: #7F8C8D;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif;
+  background: #F5F0E8; display: flex; justify-content: center; padding: 20px;
+}
+.poster {
+  max-width: 800px; width: 100%; background: linear-gradient(180deg, #FFFDF7 0%, #FFF8F0 40%, #FFFDF7 100%);
+  border-radius: 20px; box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+  overflow: hidden;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #FDEBD0 0%, #FADBD8 50%, #D6EAF8 100%);
+  padding: 30px 24px; text-align: center; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '🍬✨💡📖🔍🌟❓🧠🌱';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  font-size: 24px; opacity: 0.3; display: flex; flex-wrap: wrap;
+  justify-content: space-around; align-items: center;
+  pointer-events: none; animation: drift 20s linear infinite;
+}
+@keyframes drift { 0%{transform:translateX(0)} 100%{transform:translateX(-100px)} }
+.hero h1 {
+  font-size: 28px; font-weight: 800; color: var(--orange); position: relative; z-index: 1;
+}
+.hero .tagline {
+  font-size: 15px; color: #8C5A3E; margin-top: 6px; position: relative; z-index: 1;
+  font-weight: 600;
+}
+
+/* Journey Row */
+.journey {
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; padding: 24px 20px; flex-wrap: wrap;
+}
+.journey-node {
+  text-align: center; flex-shrink: 0;
+}
+.journey-node .emoji {
+  width: 64px; height: 64px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px; margin: 0 auto 8px;
+}
+.journey-node .label { font-size: 13px; font-weight: 700; }
+.journey-node .sub { font-size: 10px; color: var(--light); }
+.jn-bad { background: #FFF0F0; border: 2px solid #F5B7B1; }
+.jn-bad .label { color: var(--pink); }
+.jn-good { background: #F0FFF0; border: 2px solid #A9DFBF; }
+.jn-good .label { color: var(--green); }
+.journey-arrow {
+  font-size: 28px; color: var(--orange); flex-shrink: 0; font-weight: 700;
+}
+
+/* Section title */
+.section-head {
+  text-align: center; padding: 10px 0 14px;
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 3px; color: var(--blue);
+}
+
+/* Three Products */
+.products {
+  display: flex; gap: 10px; padding: 0 20px 16px; flex-wrap: wrap;
+}
+.product {
+  flex: 1; min-width: 180px; background: var(--card);
+  border-radius: 16px; padding: 18px 14px; text-align: center;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+  border-top: 4px solid #E8E4DD; position: relative;
+}
+.product.p1 { border-top-color: var(--orange); }
+.product.p2 { border-top-color: var(--blue); }
+.product.p3 { border-top-color: var(--green); }
+.product .p-illustration {
+  font-size: 48px; margin-bottom: 8px; line-height: 1;
+}
+.product .p-name { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.product .p-scene { font-size: 11px; color: var(--light); margin-bottom: 8px; }
+.product .p-flow {
+  display: flex; gap: 4px; justify-content: center; flex-wrap: wrap;
+  font-size: 10px; color: var(--light);
+}
+.product .p-flow span {
+  background: #F8F9FA; padding: 3px 8px; border-radius: 8px;
+  font-weight: 500;
+}
+.product .p-flow .arrow { background: none; color: #CCC; padding: 3px 2px; }
+
+/* Seven Steps */
+.steps {
+  display: flex; gap: 4px; padding: 12px 20px; justify-content: center;
+  flex-wrap: wrap; align-items: center;
+}
+.step {
+  background: linear-gradient(180deg, #FFF9E6, #FFF3D6);
+  border-radius: 12px; padding: 10px 8px; text-align: center;
+  min-width: 64px; border: 2px solid #F0E0C0;
+}
+.step .s-num {
+  display: block; font-size: 20px; font-weight: 800; color: var(--orange); margin-bottom: 2px;
+}
+.step .s-name { font-size: 10px; font-weight: 600; color: #8C6E3E; }
+.step.s3, .step.s4, .step.s5 { border-color: var(--blue); background: linear-gradient(180deg, #EEF5FB, #D6EAF8); }
+.step.s3 .s-num, .step.s4 .s-num, .step.s5 .s-num { color: var(--blue); }
+.step.s3 .s-name, .step.s4 .s-name, .step.s5 .s-name { color: #2471A3; }
+.step.s6, .step.s7 { border-color: var(--green); background: linear-gradient(180deg, #EEF8F0, #D5F5E3); }
+.step.s6 .s-num, .step.s7 .s-num { color: var(--green); }
+.step.s6 .s-name, .step.s7 .s-name { color: #1E8449; }
+.step-arrow { color: #CCC; font-size: 16px; flex-shrink: 0; }
+
+/* Theory Foundation */
+.foundation {
+  padding: 16px 20px 20px;
+  display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+}
+.foundation-card {
+  background: var(--card); border-radius: 12px; padding: 14px 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04); flex: 1; min-width: 150px;
+  border-left: 4px solid #E8E4DD;
+}
+.foundation-card .fc-icon { font-size: 24px; margin-bottom: 6px; }
+.foundation-card .fc-title { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.foundation-card .fc-items { font-size: 11px; color: var(--light); line-height: 1.7; }
+.fc-mission { border-left-color: var(--orange); }
+.fc-mission .fc-title { color: var(--orange); }
+.fc-learn { border-left-color: var(--blue); }
+.fc-learn .fc-title { color: var(--blue); }
+.fc-read { border-left-color: var(--green); }
+.fc-read .fc-title { color: var(--green); }
+.fc-grow { border-left-color: var(--purple); }
+.fc-grow .fc-title { color: var(--purple); }
+
+/* Bottom CTA */
+.cta {
+  background: var(--orange); color: white;
+  text-align: center; padding: 16px 20px; font-weight: 700;
+  font-size: 15px; letter-spacing: 1px;
+}
+.cta .small { font-size: 11px; font-weight: 400; opacity: 0.8; margin-top: 4px; }
+
+/* Footer */
+.footer {
+  text-align: center; padding: 10px; font-size: 10px; color: #CCC;
+}
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <div class="hero">
+    <h1>🍬 泡泡糖</h1>
+    <div class="tagline">从"不想学"到"我能行"<br>一套让孩子自己爱上学习的系统</div>
+  </div>
+
+  <!-- Journey -->
+  <div class="journey">
+    <div class="journey-node">
+      <div class="emoji jn-bad">😞</div>
+      <div class="label">厌学</div>
+      <div class="sub">不提问·不预习<br>觉得自己不行</div>
+    </div>
+    <div class="journey-arrow">→</div>
+    <div class="journey-node">
+      <div class="emoji" style="background:#FFF9E6;border:2px solid #F0E0C0;">💡</div>
+      <div class="label" style="color:var(--orange)">敢问了</div>
+      <div class="sub">一个人对着App<br>什么都能问</div>
+    </div>
+    <div class="journey-arrow">→</div>
+    <div class="journey-node">
+      <div class="emoji" style="background:#EEF5FB;border:2px solid #AED6F1;">📖</div>
+      <div class="label" style="color:var(--blue)">会预习了</div>
+      <div class="sub">课本当书看<br>不懂的标出来</div>
+    </div>
+    <div class="journey-arrow">→</div>
+    <div class="journey-node">
+      <div class="emoji jn-good">🚀</div>
+      <div class="label">能探究了</div>
+      <div class="sub">组队做项目<br>做出来讲出来</div>
+    </div>
+  </div>
+
+  <!-- Products -->
+  <div class="section-head">📱 三个入口 · 一条成长线</div>
+  <div class="products">
+    <div class="product p1">
+      <div class="p-illustration">💡</div>
+      <div class="p-name">好问题训练场</div>
+      <div class="p-scene">一个人 · 随时随地</div>
+      <div class="p-flow">
+        <span>打开</span><span class="arrow">→</span><span>打字</span><span class="arrow">→</span><span>提交</span><span class="arrow">→</span><span>AI夸你</span>
+      </div>
+    </div>
+    <div class="product p2">
+      <div class="p-illustration">📖</div>
+      <div class="p-name">翻书吧</div>
+      <div class="p-scene">课前 · 一个人预习</div>
+      <div class="p-flow">
+        <span>选课文</span><span class="arrow">→</span><span>翻着看</span><span class="arrow">→</span><span>标不懂</span><span class="arrow">→</span><span>上课听</span>
+      </div>
+    </div>
+    <div class="product p3">
+      <div class="p-illustration">🍬</div>
+      <div class="p-name">泡泡糖 PBL</div>
+      <div class="p-scene">组队 · 7步走到位</div>
+      <div class="p-flow">
+        <span>好奇</span><span class="arrow">→</span><span>提问</span><span class="arrow">→</span><span>探索</span><span class="arrow">→</span><span>展示</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seven Steps -->
+  <div class="section-head">🧭 泡泡糖 PBL · 七个过程</div>
+  <div class="steps">
+    <div class="step"><span class="s-num">①</span><span class="s-name">发现好奇</span></div>
+    <div class="step-arrow">→</div>
+    <div class="step"><span class="s-num">②</span><span class="s-name">说出好问题</span></div>
+    <div class="step-arrow">→</div>
+    <div class="step s3"><span class="s-num">③</span><span class="s-name">计划行动</span></div>
+    <div class="step-arrow">→</div>
+    <div class="step s4"><span class="s-num">④</span><span class="s-name">一起探索</span></div>
+    <div class="step-arrow">→</div>
+    <div class="step s5"><span class="s-num">⑤</span><span class="s-name">整理创造</span></div>
+    <div class="step-arrow">→</div>
+    <div class="step s6"><span class="s-num">⑥</span><span class="s-name">分享展示</span></div>
+    <div class="step-arrow">→</div>
+    <div class="step s7"><span class="s-num">⑦</span><span class="s-name">回顾成长</span></div>
+  </div>
+
+  <!-- Theory Foundation -->
+  <div class="section-head">🧱 为什么这么做？——四根柱子</div>
+  <div class="foundation">
+    <div class="foundation-card fc-mission">
+      <div class="fc-icon">🎯</div>
+      <div class="fc-title">修复内驱力</div>
+      <div class="fc-items">
+        ● 孩子自己选——自主性<br>
+        ● 先夸再引导——胜任感<br>
+        ● 团队不否定——归属感
+      </div>
+    </div>
+    <div class="foundation-card fc-learn">
+      <div class="fc-icon">🧠</div>
+      <div class="fc-title">学习如何发生</div>
+      <div class="fc-items">
+        ● 自己获取 + 互动分享<br>
+        ● 内容·动机·社交缺一不可<br>
+        ● 积累→同化→顺应→转换
+      </div>
+    </div>
+    <div class="foundation-card fc-read">
+      <div class="fc-icon">📚</div>
+      <div class="fc-title">阅读分级培养</div>
+      <div class="fc-items">
+        ● 6-13岁养成阅读习惯<br>
+        ● 自主→结伴→共读<br>
+        ● 男生10岁需特别帮助
+      </div>
+    </div>
+    <div class="foundation-card fc-grow">
+      <div class="fc-icon">🌱</div>
+      <div class="fc-title">尊重成长规律</div>
+      <div class="fc-items">
+        ● 6-12岁需要具体经验<br>
+        ● 在"刚好够得着"处引导<br>
+        ● 保护"我能行"的感觉
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    不是教知识。是让每个孩子重新相信——"我能行"。
+    <div class="small">以孩子为中心 · 成人只是脚手架 · 最好的引导是没有成人在场，孩子自己动起来</div>
+    <div class="small" style="margin-top:4px;opacity:0.7;">生活即教育 · 教育即生活 —— 杜威</div>
+  </div>
+
+  <div class="footer">
+    合悦阅读促进计划 · 儿童自主学习系统 · 2026
+  </div>
+
+</div>
+</body>
+</html>
